@@ -51,6 +51,34 @@ fun main() {
     for (month in months) {
         println(month)
     }
+    println("The size of the months Arrays is ${months.size}")
+
+    println("\nLists") // Lists are similar to Arrays, with the difference that its size can increase if you turn it into a Mutable List.
+    val monthsList = listOf("January", "February", "March", "April", "May", "June", "July", "August", "September")
+    println(monthsList.toString())
+    println("The list monthsList has ${monthsList.size} items")
+    println(monthsList[5]) // We can also access a specific position inside the List the same way as the Array.
+    val anyType = listOf("Xurumela", 1, 2, 3, true, 122.666, Fruit("Passion fruit", 5.5))
+    println(anyType.toString())
+    println("The list anyType has ${anyType.size} items")
+    for (month in monthsList) { // This also works for Lists
+        println(month)
+    }
+
+    println("Mutable Lists")
+    val additionalMonths = monthsList.toMutableList()
+    val newMonths = arrayOf("October", "November")
+    additionalMonths.addAll(newMonths)
+    additionalMonths.add("December")
+    println(additionalMonths)
+
+    val days = mutableListOf<String>("Mon", "Tue", "Wed")
+    days.add("Thu")
+    days[2] = "Sunday" // Overwrites the data in a specified position
+    // days.removeAt(3) -> Removes data at specified position. removeAll deletes more items from the list. You can use a list to delete specific items.
+    val removeList = mutableListOf<String>("Mon", "Wed")
+    days.replaceAll(removeList)
+    println(days)
 }
 
 data class Fruit(val name : String, val price : Double)
